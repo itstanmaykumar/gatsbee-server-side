@@ -20,6 +20,7 @@ async function run() {
         await client.connect();
         console.log("Gatsbee DB Connected!");
 
+        const database = client.db('GatsbeeDB');
         const burgersCollection = database.collection('burgers');
 
 
