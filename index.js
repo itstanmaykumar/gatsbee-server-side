@@ -37,6 +37,19 @@ async function run() {
             const singleBurger = await burgersCollection.findOne(query);
             res.send(singleBurger);
         });
+        // updating single burger
+        app.put("/burgers/:burgerId", async (req, res) => {
+            const id = req.params.burgerId;
+            const newRemain = req.body.newQuantity;
+            const query = { _id: ObjectId(id) };
+            console.log(newRemain);
+            const updateDoc = {
+                $set: {
+                    remain: newRemain,
+                },
+            };
+            await burgersCollection.updateOne(query, updateDoc);
+        });
 
 
     }
