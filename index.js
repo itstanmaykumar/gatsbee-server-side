@@ -40,7 +40,7 @@ async function run() {
         // updating single burger
         app.put("/burgers/:burgerId", async (req, res) => {
             const id = req.params.burgerId;
-            const newRemain = req.body.newQuantity;
+            const newRemain = req.body.current;
             const query = { _id: ObjectId(id) };
             console.log(newRemain);
             const updateDoc = {
