@@ -34,7 +34,7 @@ async function run() {
         app.get('/burgers/:burgerId', async (req, res) => {
             const id = req.params.burgerId;
             const query = { _id: ObjectId(id) };
-            const singleBurger = burgersCollection.findOne(query);
+            const singleBurger = await burgersCollection.findOne(query);
             res.send(singleBurger);
         });
 
